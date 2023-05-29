@@ -1,47 +1,24 @@
-  window.onload = (event)=>{
-    previewCharacters()
-    
-  }
-
-
 const api = axios.create({
-    baseURL: "https://rickandmortyapi.com/api"
-})
+    baseURL: 'https://rickandmortyapi.com/api',
+  });
 
-let page = 1;
-let totalPages = 1;
 
-function previewCharacters(){
+
+async function showCharacter(event){
+event.preventDefault();
+    const id =  document.getElementById("inputSearch").value
     api
-    .get(`/character/1`)
-    .then((res)=>{
-        const character = res.data
-        console.log(character)
-        
+   .get(`/character/${id}`)
+   .then((res)=>{
+    const character = res.data
+
+    const image = document.getElementById("img")
+    const cards = document.getElementById("cards")
     
-    })
+    cards.innerHTML = `${JSON.stringify(character.name)}`
+    image.src = `${character.image}`
 
-}
 
-function showCharacters(character){
-    const cards = document.getElementById("cards");
-    cards.innerHTML = "";
-
-    characters.forEach((character) => {
-        const card = document.createElement("div")
-        card.classList.add("card")
-
-        const img = document.createElement("img");
-        img.src = character.image;
-        img.alt = character.name;
-        card.appendChild(img)
-
-        api
-        .get("/character/avatar/1.jpeg")
-        .then((res)=>{
-            const img = res.data
-            img.innerHTML = `oi`
-        })
-    });
-
+   console.log(character.image)
+   })
 }
