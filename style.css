@@ -177,7 +177,11 @@ li {
 }
 
 #cards{
-    width: 100vw;
+    display: flex;
+    align-items: center;
+    width: 80vw;
+    flex-wrap: wrap;
+
 }
 
 #developer{
@@ -197,4 +201,15 @@ li {
 #linkGit:hover{
     transform: scale(102%);
     font-weight: bold;
+}
+
+#card{
+    display: flex;
+    flex-direction: row-reverse;
+    margin: 20px;
+}
+
+img{
+    width: 300px;
+    height: 300px;
 }
