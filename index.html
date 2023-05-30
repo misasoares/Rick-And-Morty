@@ -12,17 +12,24 @@
 <body>
     <header>
         <h1 id="titlePage">API de Rick and Morty</h1>
-        <div id="search">
-            <input id="inputSearch" type="number" placeholder="Pesquise">
-            <button onclick="search(event)" id="btn-go">procura ai brother</button>
-        </div>
+        <form id="search">
+            <input id="inputSearch" type="text" placeholder="Pesquise">
+            <button type="submit" onclick="search(event)" id="btn-go">procura ai brother</button>
+        </form>
     </header>
 
-    <section>
+    <section id="random" class="mainBody"></section>
+
+    <section class="mainBody">
         <div id="cards"></div>
     </section>
 
+    <img src="./rick-and-morty-portal-shoes-white-clothing-zavvi-23.png" alt="" srcset="">
+
+    <button onclick="nextPage()">Proximo</button>
+    <button>Anterior</button>
     <footer id="footerContent">
+        
         <div id="footer">
             <ul>
                 <li>PERSONAGENS:</li>

@@ -1,38 +1,78 @@
 const api = axios.create({
-    baseURL: 'https://rickandmortyapi.com/api',
-  });
+  baseURL: 'https://rickandmortyapi.com/api',
+});
 
 
+const cards = document.getElementById("cards")
 
+window.onload = function random(){
+  api
+  .get("/character")
+  .then((res)=>{
+    const characters = res.data.results
+    characters.forEach(character => { 
+      const random = document.getElementById("random")
+      const episodeos = character.episode //array de episodeos (urls)
+      
+      const i = episodeos.length - 1;  //indice do ultimo episodeo
+      const lastEp = episodeos[i];  //endpoint para o ultimo episodeo
+
+      api.get(lastEp)  //faz a requisição para o episodeo
+      .then((res)=>{
+        const episodeo = res.data;
+      
+        random.innerHTML += `<div id="container"><div id="card"><p>Nome: ${character.name} <br> ${character.status} - ${character.species} <br> Última localização: <br> ${character.location.name} <br> Visto a última vez em: <br> Episódio ${episodeo.id}: ${episodeo.name}</p><img src="${character.image}" alt="" id="img"></div></div>`
+      })
+    });  
+}) 
+}
+
+let page = 1
+let next = ""
+let prev = ""
 
 async function search(event){
-event.preventDefault();
-    const id =  document.getElementById("inputSearch").value
-    api
-   .get(`/character/${id}`)
-   .then((res)=>{
-    const character = res.data
+  event.preventDefault()
+  document.getElementById("random").style.display="none"
 
-    const cards = document.getElementById("cards")
+  const name =  document.getElementById("inputSearch").value
+ api.get(`/character/?name=${name}`)
+  .then((res)=>{
 
-    const ep = character.episode
-    const lastEp = ep.slice(ep.length-1)
+    next = res.data.info.next
+    prev = res.data.info.prev
 
-    const toString = JSON.stringify(lastEp)
+    const characters = res.data.results;  //array de personagens que contém o nome pesquisado
 
-    const toId = toString.substring(42,44)
+    populate(characters)
+  })
+}
 
-    const toNumber = parseInt(toId)
+    function populate(characters){
+    cards.innerHTML = ""
+    characters.forEach(character => { 
+    const episodeos = character.episode //array de episodeos (urls)
+    
+    const i = episodeos.length - 1;  //indice do ultimo episodeo
+    const lastEp = episodeos[i];  //endpoint para o ultimo episodeo
 
-    api
-    .get(`/episode/${toNumber}`)
+    api.get(lastEp)  //faz a requisição para o episodeo
     .then((res)=>{
-      const nameEp = res.data.name
-      
-
-      cards.innerHTML += `<div id="card"><p>Nome: ${character.name} <br> ${character.status} - ${character.species} <br> Última localização: <br> ${character.location.name} <br> Visto a última vez em: <br> Episódio ${toNumber}: ${nameEp}</p><img src="${character.image}" alt="" id="img"></div>`
-
-   
+      const episodeo = res.data;
+    
+      cards.innerHTML += `<div id="card"><p>Nome: ${character.name} <br> ${character.status} - ${character.species} <br> Última localização: <br> ${character.location.name} <br> Visto a última vez em: <br> Episódio ${episodeo.id}: ${episodeo.name}</p><img src="${character.image}" alt="" id="img"></div>`
     })
+  });
+}
+
+
+function nextPage(next){
+
+  api
+  .get(next)
+  .then((res)=>{
+    let characters = res.data.results
+    populate(characters)
+   
   })
 }

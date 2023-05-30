@@ -48,14 +48,14 @@ footer{
     width: 100%;
 }
 
-button {
+/* button {
     color: #fff;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     position: relative;
     top: -20px;
-}
+} */
 
 #search{
     display: flex;
@@ -213,3 +213,11 @@ img{
     width: 300px;
     height: 300px;
 }
+
+.mainBody{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
