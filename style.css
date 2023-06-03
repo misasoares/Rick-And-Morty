@@ -141,8 +141,11 @@ body{
 
 
 
-#logoRickAndMorty{
-    width: 22vw;
+.logoRickMorty{
+    max-width: 400px;
+    max-height: 400px;
+    width: auto;
+    height: auto;
 }
 
 #btnPages{
@@ -185,12 +188,21 @@ li {
 
 
 
+.iconTopDiv{
+    display: contents;
+}
+
+.documentationIcon{
+    align-self: flex-start;
+}
 
 
-
-img{
-    width: 300px;
-    height: 300px;
+.iconTop{
+    max-width: 140px;
+    max-height: 140px;
+    width: auto;
+    height: auto;
+    align-self: self-start;
 }
 
 

@@ -59,13 +59,7 @@ function populate(characters){
 
       addCard(character, episodeo)  //adiciona o card
 
-      // cards.innerHTML += `<div id="card"><p>Nome: ${character.name} <br> 
-      // ${character.status} - ${character.species} <br> 
-      // Última localização: 
-      // <br> ${character.location.name} 
-      // <br> Visto a última vez em: 
-      // <br> Episódio ${episodeo.id}: ${episodeo.name}</p>
-      // <img src="${character.image}" alt="" id="img"></div>`
+     
     })
   });
 }
@@ -141,17 +135,16 @@ function addCard(character, episodeo){
 
   if (character.status == 'Alive') {
     
-    // status.classList.add("vivo")
     divText.appendChild(add(`<span class="vivo"></span>${character.status} - ${character.species}`))
   }
 
   if (character.status == 'Dead') {
-    // status.classList.add("morto")
+
     divText.appendChild(add(`<span class="morto"></span>${character.status} - ${character.species}`))
   }
 
   if (character.status == 'unknown') {
-    // status.classList.add("desconhecido")
+  
     divText.appendChild(add(`<span class="desconhecido"></span>${character.status} - ${character.species}`))
   }
   
