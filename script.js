@@ -21,9 +21,9 @@ window.onload = () => {
     populate(characters)
     console.log(`next: ${next}, prev: ${prev}`)
     start()
+    
 }) 
 }
-
 
 async function search(event){
   event.preventDefault()
@@ -132,23 +132,76 @@ function addCard(character, episodeo){
 
   let img = document.createElement("img")
   img.setAttribute('src', `${character.image}`)
+  img.classList.add("imgCard")
 
   let divText = document.createElement("div")
+  divText.classList.add("infoCharacter")
   
-  divText.appendChild(add(`Nome: ${character.name}`))
-  divText.appendChild(add(`Status: ${character.status}`))
-  divText.appendChild(add(`Espécie: ${character.species}`))
-  divText.appendChild(add(`Ultima localização: ${character.location.name}`))
-  divText.appendChild(add(`Visto pela ultima vez: episódeo ${episodeo.id} (${episodeo.name})`))
+  divText.appendChild(add(`${character.name}`))
+
+  if (character.status == 'Alive') {
+    
+    // status.classList.add("vivo")
+    divText.appendChild(add(`<span class="vivo"></span>${character.status} - ${character.species}`))
+  }
+
+  if (character.status == 'Dead') {
+    // status.classList.add("morto")
+    divText.appendChild(add(`<span class="morto"></span>${character.status} - ${character.species}`))
+  }
+
+  if (character.status == 'unknown') {
+    // status.classList.add("desconhecido")
+    divText.appendChild(add(`<span class="desconhecido"></span>${character.status} - ${character.species}`))
+  }
+  
+  divText.appendChild(add(`<span class="textGrey"> Última localização conhecida: </span> <br>${character.location.name}`))
+  divText.appendChild(add(`<span class="textGrey"> Visto pela última vez em: </span> <br>${episodeo.name}`))
 
   card.appendChild(img)
   card.appendChild(divText)
 
-  const paragrafo = divText.children[1];
+  let name = divText.children[0];
+  if (character.name) name.classList.add("name")
 
-  if (character.status == 'Alive') paragrafo.classList.add("vivo")
-  if (character.status == 'Dead') paragrafo.classList.add("morto")
-
+  let status = divText.children[1]
+  if (character.status) status.classList.add("status")
   
+  
+  
+  
+  let location = divText.children[2]
+  if (character.location.name) location.classList.add("location")
+  
+  let ep = divText.children[3]
+  if (episodeo.name) ep.classList.add("episodeo")
+  
+  
+
   cards.appendChild(card)
+
+}
+
+infoFooter()
+
+function infoFooter(){
+  api
+  .get(`/character`)
+  .then((res)=>{
+    const qtdPersonagensData = res.data.info.count
+    document.getElementById("qtdPersonagens").innerHTML = `PERSONAGENS: ${qtdPersonagensData}`
+  })
+
+  api.get(`/location`)
+  .then((res)=>{
+    const qtdLocalizacoesData = res.data.info.count
+    document.getElementById("qtdLocalizacoes").innerHTML = `LOCALIZAÇÕES: ${qtdLocalizacoesData}`
+  })
+
+  api
+  .get(`/episode`)
+  .then((res)=>{
+    const qtdEpisodiosData = res.data.info.count
+    document.getElementById("qtdEpisodios").innerHTML = `EPISÓDIOS: ${qtdEpisodiosData}`
+  })
 }

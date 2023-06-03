@@ -3,12 +3,7 @@
     padding: 0;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
-body{
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-    align-items: center;
-}
+
 header{
     display: flex;
     flex-direction: column;
@@ -16,208 +11,216 @@ header{
     width: 100vw;
     margin: 8vh;
     align-items: center;
-    justify-content: flex-start;
-}
-
-
-#titlePage{
-    text-align: center;
-    color: rgb(16, 87, 24);
-    font-size: 10vh;
-    font-weight: bolder;
-}
-
-#logoRickAndMorty{
-    width: 22vw;
-}
-
-#inputSearch{
-
-    width: 60vw;
-}
-
-footer{
-    display: flex;
-    align-items: center;
-    flex-flow: column nowrap;
-    position: relative;
-    background: rgb(31, 40, 33);
-    color: rgb(158, 158, 158);
-    padding: 3.5rem 0px;
-    min-height: calc(120px);
-    width: 100%;
-}
-
-/* button {
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    position: relative;
-    top: -20px;
-} */
-
-#search{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-}
-
-ul {
-    display: flex;
-    justify-content: space-between;
-
-}
-
-li {
-    list-style: none;
-    margin: 5vh;
-    font-size: 1.7vh;
-    text-transform: uppercase;
-    text-align: center;
-    font-weight: bold;
-}*{
-    margin: 0;
-    padding: 0;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-body{
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-    align-items: center;
-   
-}
-header{
-    display: flex;
-    flex-direction: column;
-    height: 20vh;
-    width: 100vw;
-    margin: 8vh;
-    align-items: center;
-    justify-content: flex-start;
-}
-
-
-#titlePage{
-    text-align: center;
-    color: rgb(16, 87, 24);
-    font-size: 10vh;
-    font-weight: bolder;
-}
-
-#logoRickAndMorty{
-    width: 22vw;
-}
-
-#inputSearch{
-
-    width: 60vw;
-}
-
-footer{
-    display: flex;
-    align-items: center;
-    flex-flow: column nowrap;
-    position: relative;
-    background: rgb(31, 40, 33);
-    color: rgb(158, 158, 158);
-    padding: 3.5rem 0px;
-    min-height: calc(120px);
-    width: 100%;
-}
-
-/* button {
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    position: relative;
-    top: -20px;
-} */
-
-#search{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-}
-
-ul {
-    display: flex;
-    justify-content: space-between;
-
-}
-
-li {
-    list-style: none;
-    margin: 5vh;
-    font-size: 1.7vh;
-    text-transform: uppercase;
-    text-align: center;
-    font-weight: bold;
-}
-
-#developer{
-    display: flex;
-    font-size: 2vh;
-    flex-direction: row;
     justify-content: center;
 }
+#titlePage{
+    text-align: center;
+    color: rgb(16, 87, 24);
+    font-size: 10vh;
+    font-weight: 900;
+}
 
-#linkGit{
-    color: rgb(196, 196, 196);
-    text-decoration: none;
+
+
+body{
     display: flex;
-    margin-inline: 4px;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
 }
 
-#linkGit:hover{
-    transform: scale(102%);
-    font-weight: bold;
+.mainBody{
+    width: 1280px;
+    display: grid;
+    grid-template-columns: auto auto;
+  
+    
 }
+
+
+
+
+
+.buttonSearch {
+    background-color: white;
+    color: #00993b;
+    border: none!important;
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+
+}
+
+
+
+
+#search{
+    display: grid;
+    align-items: center;
+}
+#inputSearch{
+    border-radius: 5px;
+    width: 900px;
+    height: 3vh;
+    border-width: 1px;
+    border-style: double;
+    border-color: rgb(185, 185, 185); 
+    padding-left: 20px;
+}
+#btn-go{
+    position: absolute;
+    align-self: center;
+    justify-self: flex-end;
+    padding-right: 10px;
+}
+
+
+
 
 #cards{
-    display: flex;
-    align-items: center;
-    width: 80vw;
-    flex-wrap: wrap;
-
+    display: contents;
 }
 
-#developer{
+.card{
     display: flex;
-    font-size: 2vh;
-    flex-direction: row;
-    justify-content: center;
+    margin: 30px;
+}
+.imgCard{
+    max-width: 230px;
+    max-height: 230px;
+    width: auto;
+    height: auto;
+    border: solid 2px;
+    border-radius: 15px;
+    border-color: #0f3f2098;
+    
 }
 
-#linkGit{
-    color: rgb(196, 196, 196);
-    text-decoration: none;
-    display: flex;
-    margin-inline: 4px;
+.infoCharacter{display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    font-weight: bolder;
+    margin-left: 10px;
 }
 
-#linkGit:hover{
-    transform: scale(102%);
+
+.vivo{
+    display: inline-block;
+    background-color: #02da54;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+}
+.morto{
+    display: inline-block;
+    background-color: red;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+}
+.desconhecido{
+    display: inline-block;
+    background-color: grey;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+} 
+
+
+
+.name{
+    font-size: 22px;
+    color: rgb(16, 87, 24);
+    font-weight: bolder;
+}
+
+.textGrey{
+    color: rgb(170, 170, 170);
+}
+
+
+
+
+#logoRickAndMorty{
+    width: 22vw;
+}
+
+#btnPages{
+    margin: 40px;
+}
+
+#btnNext{
+    background-color: white;
+    border: none;
+    color: green;
+    font-size: 15px;
+    cursor: pointer;
+}
+#btnPrev{
+    background-color: white;
+    border: none;
+    color: green;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+
+
+
+ul {
+    display: flex;
+    justify-content: space-between;
+
+}
+li {
+    list-style: none;
+    margin: 5vh;
+    font-size: 1.7vh;
+    text-transform: uppercase;
+    text-align: center;
     font-weight: bold;
 }
 
-#card{
-    display: flex;
-    flex-direction: row-reverse;
-    margin: 20px;
-}
+
+
+
+
+
+
 
 img{
     width: 300px;
     height: 300px;
 }
 
-.mainBody{
+
+#developer{
     display: flex;
-    align-items: center;
+    font-size: 2vh;
     flex-direction: row;
-    flex-wrap: wrap;
+    justify-content: center;
 }
 
+#linkGit{
+    color: rgb(196, 196, 196);
+    text-decoration: none;
+    display: flex;
+    margin-inline: 4px;
+}
+
+#linkGit:hover{
+    transform: scale(102%);
+    font-weight: bold;
+}
+
+footer{
+    display: flex;
+    align-items: center;
+    flex-flow: column nowrap;
+    position: relative;
+    background: rgb(31, 40, 33);
+    color: rgb(158, 158, 158);
+    padding: 3.5rem 0px;
+    min-height: calc(120px);
+    width: 100%;
+}

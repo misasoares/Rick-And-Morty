@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/613312e814.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="script.js"></script>
     <title>Rick and Morty</title>
@@ -14,7 +15,7 @@
         <h1 id="titlePage">API de Rick and Morty</h1>
         <form id="search">
             <input id="inputSearch" type="text" placeholder="Pesquise">
-            <button type="submit" onclick="search(event)" id="btn-go">procura ai brother</button>
+            <button class="buttonSearch" type="submit" onclick="search(event)" id="btn-go"><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
     </header>
 
@@ -22,17 +23,21 @@
         <div id="cards"></div>
     </section>
 
-    <img src="./rick-and-morty-portal-shoes-white-clothing-zavvi-23.png" alt="" srcset="">
+    <img class="logoRickMorty" src="./rick-and-morty-portal-shoes-white-clothing-zavvi-23.png" alt="" srcset="">
 
-    <button id="btnNext">Proximo</button>
-    <button id="btnPrev">Anterior</button>
+    <div class="btnPages">
+        <button id="btnPrev">Anterior</button>
+        -
+        <button id="btnNext">Proximo</button>
+    </div>
+    
     <footer id="footerContent">
         
         <div id="footer">
             <ul>
-                <li>PERSONAGENS:</li>
-                <li>LOCALIZAÇÕES:</li>
-                <li>EPISÓDIOS:</li>
+                <li id="qtdPersonagens">PERSONAGENS:</li>
+                <li id="qtdLocalizacoes">LOCALIZAÇÕES:</li>
+                <li id="qtdEpisodios">EPISÓDIOS:</li>
             </ul>
             <p id="developer">Desenvolvido por: <a id="linkGit" href="https://github.com/misasoares" target="_blank">Misael Soares</a> em 2023</p>
             
