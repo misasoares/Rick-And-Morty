@@ -121,47 +121,53 @@ function addCard(character, episodeo){
     return p;
   }
 
+
+  let col = document.createElement("div")
+  col.classList.add('col-4')
+
   let card = document.createElement("div")
   card.classList.add('card')
 
   let img = document.createElement("img")
   img.setAttribute('src', `${character.image}`)
-  img.classList.add("imgCard")
+  img.classList.add("card-img-top")
+
 
   let divText = document.createElement("div")
-  divText.classList.add("infoCharacter")
+  divText.classList.add("card-body")
+ 
   
-  divText.appendChild(add(`${character.name}`))
+  divText.appendChild(add(`<h5 class="card-title">${character.name}</h5>`))
 
   if (character.status == 'Alive') {
     
-    divText.appendChild(add(`<span class="vivo"></span>${character.status} - ${character.species}`))
+    divText.appendChild(add(`<span class="vivo card-text"></span>${character.status} - ${character.species}`))
   }
 
   if (character.status == 'Dead') {
 
-    divText.appendChild(add(`<span class="morto"></span>${character.status} - ${character.species}`))
+    divText.appendChild(add(`<span class="morto card-text"></span>${character.status} - ${character.species}`))
   }
 
   if (character.status == 'unknown') {
   
-    divText.appendChild(add(`<span class="desconhecido"></span>${character.status} - ${character.species}`))
+    divText.appendChild(add(`<span class="desconhecido card-text"></span>${character.status} - ${character.species}`))
   }
   
   divText.appendChild(add(`<span class="textGrey"> Última localização conhecida: </span> <br>${character.location.name}`))
   divText.appendChild(add(`<span class="textGrey"> Visto pela última vez em: </span> <br>${episodeo.name}`))
 
-  card.appendChild(img)
-  card.appendChild(divText)
+
+
+  col.appendChild(card)
+  col.appendChild(img)
+  col.appendChild(divText)
 
   let name = divText.children[0];
   if (character.name) name.classList.add("name")
 
   let status = divText.children[1]
   if (character.status) status.classList.add("status")
-  
-  
-  
   
   let location = divText.children[2]
   if (character.location.name) location.classList.add("location")
@@ -171,7 +177,7 @@ function addCard(character, episodeo){
   
   
 
-  cards.appendChild(card)
+  cards.appendChild(col)
 
 }
 

@@ -34,7 +34,6 @@ body{
     display: grid;
     grid-template-columns: auto auto;
   
-    
 }
 
 
@@ -77,15 +76,16 @@ body{
 
 
 
-#cards{
+/* #cards{
     display: contents;
-}
+} */
 
-.card{
+
+/* .card{
     display: flex;
     margin: 30px;
-}
-.imgCard{
+} */
+/* .imgCard{
     max-width: 230px;
     max-height: 230px;
     width: auto;
@@ -94,14 +94,14 @@ body{
     border-radius: 15px;
     border-color: #0f3f2098;
     
-}
+} */
 
-.infoCharacter{display: flex;
+/* .infoCharacter{display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     font-weight: bolder;
     margin-left: 10px;
-}
+} */
 
 
 .vivo{
@@ -128,7 +128,7 @@ body{
 
 
 
-.name{
+/* .name{
     font-size: 22px;
     color: rgb(16, 87, 24);
     font-weight: bolder;
@@ -136,7 +136,7 @@ body{
 
 .textGrey{
     color: rgb(170, 170, 170);
-}
+} */
 
 
 
