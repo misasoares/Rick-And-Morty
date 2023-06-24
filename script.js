@@ -115,7 +115,7 @@ function prevPage(url){
 function addCard(character, episodeo){
   let cards = document.getElementById("cards")
 
-  function add(string) {
+    function add(string) {
     p = document.createElement("p")
     p.innerHTML = string;
     return p;
@@ -123,10 +123,12 @@ function addCard(character, episodeo){
 
 
   let col = document.createElement("div")
+  
   col.classList.add('col-4')
-
+  
   let card = document.createElement("div")
   card.classList.add('card')
+  card.style.width = '18rem'
 
   let img = document.createElement("img")
   img.setAttribute('src', `${character.image}`)
@@ -135,9 +137,13 @@ function addCard(character, episodeo){
 
   let divText = document.createElement("div")
   divText.classList.add("card-body")
+
+  let button = document.createElement("a")
+  button.classList.add("btn")
  
   
   divText.appendChild(add(`<h5 class="card-title">${character.name}</h5>`))
+  
 
   if (character.status == 'Alive') {
     
@@ -153,15 +159,19 @@ function addCard(character, episodeo){
   
     divText.appendChild(add(`<span class="desconhecido card-text"></span>${character.status} - ${character.species}`))
   }
+
+  
   
   divText.appendChild(add(`<span class="textGrey"> Última localização conhecida: </span> <br>${character.location.name}`))
   divText.appendChild(add(`<span class="textGrey"> Visto pela última vez em: </span> <br>${episodeo.name}`))
-
+  divText.appendChild(add(`<a href="#" class="btn btn-success">Mais informações</a>`))
+ 
 
 
   col.appendChild(card)
   col.appendChild(img)
   col.appendChild(divText)
+  
 
   let name = divText.children[0];
   if (character.name) name.classList.add("name")
