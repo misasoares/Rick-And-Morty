@@ -127,13 +127,15 @@ function addCard(character, episodeo){
   col.classList.add('col-12')
   col.classList.add('col-md-6')
   col.classList.add('col-lg-4')
+  col.classList.add('col-xxl-3')
 
   
   let card = document.createElement("div")
   card.classList.add('card')
   card.classList.add('border-success')
   card.classList.add('mb-5')
-  card.style.maxWidth = '21rem'
+  card.style.maxWidth = '18rem'
+  card.style.maxHeight = '35rem'
 
   let img = document.createElement("img")
   img.setAttribute('src', `${character.image}`)
@@ -147,8 +149,10 @@ function addCard(character, episodeo){
   let button = document.createElement("a")
   button.classList.add("btn")
  
-  
-  divText.appendChild(add(`<h5 class="card-title">${character.name}</h5>`))
+  let title = document.createElement("h5")
+  title.classList.add("card-title")
+  title.innerHTML = `${character.name}`
+  // divText.appendChild(add(`<h5 class="card-title">${character.name}</h5>`))
   
 
   if (character.status == 'Alive') {
@@ -176,7 +180,9 @@ function addCard(character, episodeo){
 
   col.appendChild(card)
   card.appendChild(img)
+  card.appendChild(title)
   card.appendChild(divText)
+  
   
 
   let name = divText.children[0];
