@@ -135,7 +135,7 @@ function addCard(character, episodeo){
   card.classList.add('border-success')
   card.classList.add('mb-5')
   card.style.maxWidth = '18rem'
-  card.style.maxHeight = '35rem'
+
 
   let img = document.createElement("img")
   img.setAttribute('src', `${character.image}`)
@@ -152,7 +152,6 @@ function addCard(character, episodeo){
   let title = document.createElement("h5")
   title.classList.add("card-title")
   title.innerHTML = `${character.name}`
-  // divText.appendChild(add(`<h5 class="card-title">${character.name}</h5>`))
   
 
   if (character.status == 'Alive') {
@@ -174,7 +173,27 @@ function addCard(character, episodeo){
   
   divText.appendChild(add(`<span class="textGrey"> Última localização conhecida: </span> <br>${character.location.name}`))
   divText.appendChild(add(`<span class="textGrey"> Visto pela última vez em: </span> <br>${episodeo.name}`))
-  divText.appendChild(add(`<a href="#" class="btn btn-success">Mais informações</a>`))
+  divText.appendChild(add(`<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>`))
  
 
 
@@ -185,17 +204,17 @@ function addCard(character, episodeo){
   
   
 
-  let name = divText.children[0];
-  if (character.name) name.classList.add("name")
+  // let name = divText.children[0];
+  // if (character.name) name.classList.add("name")
 
-  let status = divText.children[1]
-  if (character.status) status.classList.add("status")
+  // let status = divText.children[1]
+  // if (character.status) status.classList.add("status")
   
-  let location = divText.children[2]
-  if (character.location.name) location.classList.add("location")
+  // let location = divText.children[2]
+  // if (character.location.name) location.classList.add("location")
   
-  let ep = divText.children[3]
-  if (episodeo.name) ep.classList.add("episodeo")
+  // let ep = divText.children[3]
+  // if (episodeo.name) ep.classList.add("episodeo")
   
   
 
