@@ -125,6 +125,7 @@ function addCard(character, episodeo){
   let col = document.createElement("div")
   
   col.classList.add('col-12')
+  // col.classList.add('offset-4')
   col.classList.add('col-md-6')
   col.classList.add('col-lg-4')
   col.classList.add('col-xxl-3')
@@ -145,9 +146,6 @@ function addCard(character, episodeo){
   let divText = document.createElement("div")
   divText.classList.add("card-body")
   
-
-  let button = document.createElement("a")
-  button.classList.add("btn")
  
   let title = document.createElement("h5")
   title.classList.add("card-title")
@@ -173,49 +171,59 @@ function addCard(character, episodeo){
   
   divText.appendChild(add(`<span class="textGrey"> Última localização conhecida: </span> <br>${character.location.name}`))
   divText.appendChild(add(`<span class="textGrey"> Visto pela última vez em: </span> <br>${episodeo.name}`))
-  divText.appendChild(add(`<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Launch demo modal
-</button>
+  
 
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>`))
- 
+  divText.appendChild(add(`<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Mais informações
+</button>
+`))
+
+let modal = document.createElement("div")
+modal.classList.add("modal","fade")
+modal.setAttribute("id","exampleModal")
+modal.setAttribute("tabindex","-1")
+modal.setAttribute("aria-labelledby","exampleModalLabel")
+modal.setAttribute("aria-hidden","true")
+
+
+let modalDialog = document.createElement("div")
+modalDialog.classList.add("modal-dialog")
+// modal.appendChild(modalDialog)
+
+
+let modalContent = document.createElement("div")
+modalContent.classList.add("modal-content")
+// modal.appendChild(modalContent)
+
+let modalHeader = document.createElement("div")
+modalHeader.classList.add("modal-header")
+// modalContent.appendChild(modalHeader)
+  
+let modalTitle = document.createElement("h1")
+modalTitle.classList.add("modal-title", "fs-5")
+modalTitle.setAttribute("id", "")
+modalTitle.textContent = `${character.name}`
+// modalHeader.appendChild(modalTitle)
+
+let buttonClose = document.createElement("button")
+buttonClose.classList.add("btn-close")
+buttonClose.setAttribute("type", "button" )
+buttonClose.setAttribute("data-bs-dismiss", "modal")
+buttonClose.setAttribute("aria-label", "Close")
+// modalHeader.appendChild(buttonClose)
+
+let modalBody = document.createElement("div")
+modalBody.classList.add("modal-body")
+// modalContent.appendChild(modalBody)
+
 
 
   col.appendChild(card)
   card.appendChild(img)
   card.appendChild(title)
   card.appendChild(divText)
-  
-  
-
-  // let name = divText.children[0];
-  // if (character.name) name.classList.add("name")
-
-  // let status = divText.children[1]
-  // if (character.status) status.classList.add("status")
-  
-  // let location = divText.children[2]
-  // if (character.location.name) location.classList.add("location")
-  
-  // let ep = divText.children[3]
-  // if (episodeo.name) ep.classList.add("episodeo")
-  
+  divText.appendChild(modal)
+ 
   
 
   cards.appendChild(col)
@@ -245,3 +253,4 @@ function infoFooter(){
     document.getElementById("qtdEpisodios").innerHTML = `EPISÓDIOS: ${qtdEpisodiosData}`
   })
 }
+

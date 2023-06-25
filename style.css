@@ -2,43 +2,22 @@
     margin: 0;
     padding: 0;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
 }
 
-header{
-    display: flex;
-    flex-direction: column;
-    height: 20vh;
-    width: 100vw;
-    margin: 8vh;
-    align-items: center;
-    justify-content: center;
+.body{
+    background-image: url(./FUNDO.jpg);
+    background-repeat: no-repeat;
 }
+
+
 #titlePage{
     text-align: center;
     color: rgb(16, 87, 24);
     font-size: 10vh;
     font-weight: 900;
+    margin: 1rem;
 }
-
-
-
-body{
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-    align-items: center;
-}
-
-.mainBody{
-    width: 1280px;
-    display: grid;
-    grid-template-columns: auto auto;
-  
-}
-
-
-
-
 
 .buttonSearch {
     background-color: white;
@@ -46,62 +25,21 @@ body{
     border: none!important;
     border-radius: 4px;
     cursor: pointer;
-    position: relative;
+    position: absolute;
 
 }
 
 
-
-
-#search{
-    display: grid;
+.card{
+    display: flex;
     align-items: center;
 }
-#inputSearch{
-    border-radius: 5px;
-    width: 900px;
-    height: 3vh;
-    border-width: 1px;
-    border-style: double;
-    border-color: rgb(185, 185, 185); 
-    padding-left: 20px;
-}
-#btn-go{
-    position: absolute;
-    align-self: center;
-    justify-self: flex-end;
-    padding-right: 10px;
-}
 
-
-
-
-/* #cards{
-    display: contents;
-} */
-
-
-/* .card{
+.col-12{
     display: flex;
-    margin: 30px;
-} */
-/* .imgCard{
-    max-width: 230px;
-    max-height: 230px;
-    width: auto;
-    height: auto;
-    border: solid 2px;
-    border-radius: 15px;
-    border-color: #0f3f2098;
-    
-} */
+    justify-content: center;
+}
 
-/* .infoCharacter{display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    font-weight: bolder;
-    margin-left: 10px;
-} */
 
 
 .vivo{
@@ -127,17 +65,9 @@ body{
 } 
 
 
-
-/* .name{
-    font-size: 22px;
-    color: rgb(16, 87, 24);
-    font-weight: bolder;
-} */
-
 .textGrey{
     color: rgb(170, 170, 170);
 }
-
 
 
 
@@ -183,9 +113,6 @@ li {
     text-align: center;
     font-weight: bold;
 }
-
-
-
 
 
 .iconTopDiv{

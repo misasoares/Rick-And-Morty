@@ -1,67 +1,123 @@
 <!DOCTYPE html>
 <html lang="pt_BR">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/613312e814.js" crossorigin="anonymous"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/613312e814.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
     <title>Rick and Morty</title>
-</head>
-<body>
-    <header>
-        <div class="iconTopDiv">
-            <a class="documentationIcon" href="https://rickandmortyapi.com" target="_blank" rel="noopener noreferrer">
-                <img  class="iconTop" src="logo.png" alt="logo">
+  </head>
+  <body class="body">
+        <header>
+            <div class="iconTopDiv">
+                <a
+                class="documentationIcon"
+                href="https://rickandmortyapi.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                >
+                <img class="iconTop" src="logo.png" alt="logo" />
             </a>
         </div>
         
         <h1 id="titlePage">API de Rick and Morty</h1>
-        <form id="search">
-            <input id="inputSearch" type="text" placeholder="Pesquise">
-            <button class="buttonSearch" type="submit" onclick="search(event)" id="btn-go"><i class="fa-solid fa-magnifying-glass"></i></button>
-        </form>
-    </header>
-
-    <section>
-    
-            <div class="container">
-                <div class="row" id="cards">
-
-                </div>
+        
+        
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                <form id="search">
+                    <div class="mb-3 d-flex flex-row-reverse align-items-center">
+                      <input id="inputSearch" class="form-control" type="text" placeholder="Pesquise"/>
+                      <button class="buttonSearch" type="submit" onclick="search(event)" id="btn-go"><i class="fa-solid fa-magnifying-glass me-2"></i></button>
+                    </div>
+                </form>
             </div>
-        
-    </section>
-
-    
-
-    <div>
-        <img class="logoRickMorty" src="./rick-and-morty-portal-shoes-white-clothing-zavvi-23.png" alt="logo rick and morty" >
-    </div>
-
-    
-    <div class="btnPages">
-        <button id="btnPrev">Anterior</button>
-        -
-        <button id="btnNext">Proximo</button>
-    </div>
-
-    <footer id="footerContent">
-        
-        <div id="footer">
-            <ul>
-                <li id="qtdPersonagens">PERSONAGENS:</li>
-                <li id="qtdLocalizacoes">LOCALIZAÇÕES:</li>
-                <li id="qtdEpisodios">EPISÓDIOS:</li>
-            </ul>
-            <p id="developer">Desenvolvido por: <a id="linkGit" href="https://github.com/misasoares" target="_blank">Misael Soares</a> em 2023</p>
-            
         </div>
-    </footer>
-    <script src="script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    </div>
+    
+</header>
+
+
+<section>
+    <div class="container">
+        <div class="row" id="cards"></div>
+    </div>
+</section>
+
+<div class="d-flex align-items-center justify-content-center">
+    <img
+    class="logoRickMorty "
+    src="./rick-and-morty-portal-shoes-white-clothing-zavvi-23.png"
+    alt="logo rick and morty"
+    />
+</div>
+
+<div class="btnPages">
+    <button id="btnPrev">Anterior</button>
+    -
+    <button id="btnNext">Proximo</button>
+</div>
+
+<footer id="footerContent">
+    <div id="footer">
+        <ul>
+          <li id="qtdPersonagens">PERSONAGENS:</li>
+          <li id="qtdLocalizacoes">LOCALIZAÇÕES:</li>
+          <li id="qtdEpisodios">EPISÓDIOS:</li>
+        </ul>
+        <p id="developer">
+            Desenvolvido por:
+            <a id="linkGit" href="https://github.com/misasoares" target="_blank"
+            >Misael Soares</a
+            >
+            em 2023
+        </p>
+    </div>
+</footer>
+
+<div class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel"></h1>
+                <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+                ></button>
+            </div>
+            <div class="modal-body">...</div>
+            <div class="modal-footer">
+            <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+            ></button>
+        </div>
+    </div>
+</div>
+</div>
+
+
+<script src="script.js"></script>
+<script
+src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+crossorigin="anonymous"
+></script>
 </body>
 </html>
