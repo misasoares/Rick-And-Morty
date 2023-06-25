@@ -124,11 +124,16 @@ function addCard(character, episodeo){
 
   let col = document.createElement("div")
   
-  col.classList.add('col-4')
+  col.classList.add('col-12')
+  col.classList.add('col-md-6')
+  col.classList.add('col-lg-4')
+
   
   let card = document.createElement("div")
   card.classList.add('card')
-  card.style.width = '18rem'
+  card.classList.add('border-success')
+  card.classList.add('mb-5')
+  card.style.maxWidth = '21rem'
 
   let img = document.createElement("img")
   img.setAttribute('src', `${character.image}`)
@@ -137,6 +142,7 @@ function addCard(character, episodeo){
 
   let divText = document.createElement("div")
   divText.classList.add("card-body")
+  
 
   let button = document.createElement("a")
   button.classList.add("btn")
@@ -169,8 +175,8 @@ function addCard(character, episodeo){
 
 
   col.appendChild(card)
-  col.appendChild(img)
-  col.appendChild(divText)
+  card.appendChild(img)
+  card.appendChild(divText)
   
 
   let name = divText.children[0];
