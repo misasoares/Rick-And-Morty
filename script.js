@@ -112,6 +112,30 @@ function prevPage(url){
   })
 }
 
+function populateModal(id) {
+  let modalTitle = document.getElementById('exampleModalLabel')
+  let modalBody = document.getElementById('modal-body')
+
+  let tilsca = api.get(`/character/${id}`).then((res) => {
+    let personagem = res.data
+    modalTitle.textContent = `${personagem.name}`
+    console.log(personagem.name)
+    modalBody.innerHTML = `<p>Status: ${personagem.status}</p>
+    <p>Species: ${personagem.species}</p>
+    <p>Gender: ${personagem.gender}</p>
+    <p>Origin: ${personagem.origin.name}</p>
+    <p>Location: ${personagem.location.name}</p>
+    <p>Was seen in: ${personagem.episode.length} episodes</p>`
+
+    // let dados = Object.entries(personagem)
+    // for ([key, value] of dados) {
+    //   let p = document.createElement("p")
+    //   p.innerHTML = `${key}:< ${value}`
+    //   modalBody.appendChild(p)
+    // }
+  })
+}
+
 function addCard(character, episodeo){
   let cards = document.getElementById("cards")
 
@@ -129,13 +153,16 @@ function addCard(character, episodeo){
   col.classList.add('col-md-6')
   col.classList.add('col-lg-4')
   col.classList.add('col-xxl-3')
+  col.style.width = '11rem'
+  col.style.height = '370px'
+  
 
   
   let card = document.createElement("div")
   card.classList.add('card')
   card.classList.add('border-success')
   card.classList.add('mb-5')
-  card.style.maxWidth = '18rem'
+  
 
 
   let img = document.createElement("img")
@@ -145,16 +172,25 @@ function addCard(character, episodeo){
 
   let divText = document.createElement("div")
   divText.classList.add("card-body")
-  
+  divText.classList.add("d-flex")
+  divText.classList.add("flex-column")
+  divText.classList.add("justify-content-between")
+  divText.classList.add("align-items-center")
+
  
   let title = document.createElement("h5")
   title.classList.add("card-title")
+  title.classList.add("fw-bolder")
+  title.classList.add("d-flex")
+  title.classList.add("align-items-center")
+  title.classList.add("text-center")
+  title.classList.add("titleCard")
   title.innerHTML = `${character.name}`
   
 
   if (character.status == 'Alive') {
     
-    divText.appendChild(add(`<span class="vivo card-text"></span>${character.status} - ${character.species}`))
+    divText.appendChild(add(`<span class="vivo card-text "></span>${character.status} - ${character.species}`))
   }
 
   if (character.status == 'Dead') {
@@ -169,52 +205,28 @@ function addCard(character, episodeo){
 
   
   
-  divText.appendChild(add(`<span class="textGrey"> Última localização conhecida: </span> <br>${character.location.name}`))
-  divText.appendChild(add(`<span class="textGrey"> Visto pela última vez em: </span> <br>${episodeo.name}`))
+  // divText.appendChild(add(`<span class="textGrey"> Última localização conhecida: </span> <br>${character.location.name}`))
+  // divText.appendChild(add(`<span class="textGrey"> Visto pela última vez em: </span> <br>${episodeo.name}`))
+  
+  function tilscaa() {
+    console.log("tilsca")
+  }
+
+  let btnModal = document.createElement("button")
+  btnModal.classList.add("btn", "btn-success", "btnModal")
+  btnModal.setAttribute("type", "button")
+  btnModal.setAttribute("data-bs-toggle", "modal")
+  btnModal.setAttribute("data-bs-target", "#exampleModal")
+  btnModal.innerHTML = "Mais informações"
+  btnModal.setAttribute("onclick", `populateModal(${character.id});`)
+  
+  divText.appendChild(btnModal)
+
   
 
-  divText.appendChild(add(`<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Mais informações
-</button>
-`))
-
-let modal = document.createElement("div")
-modal.classList.add("modal","fade")
-modal.setAttribute("id","exampleModal")
-modal.setAttribute("tabindex","-1")
-modal.setAttribute("aria-labelledby","exampleModalLabel")
-modal.setAttribute("aria-hidden","true")
 
 
-let modalDialog = document.createElement("div")
-modalDialog.classList.add("modal-dialog")
-// modal.appendChild(modalDialog)
 
-
-let modalContent = document.createElement("div")
-modalContent.classList.add("modal-content")
-// modal.appendChild(modalContent)
-
-let modalHeader = document.createElement("div")
-modalHeader.classList.add("modal-header")
-// modalContent.appendChild(modalHeader)
-  
-let modalTitle = document.createElement("h1")
-modalTitle.classList.add("modal-title", "fs-5")
-modalTitle.setAttribute("id", "")
-modalTitle.textContent = `${character.name}`
-// modalHeader.appendChild(modalTitle)
-
-let buttonClose = document.createElement("button")
-buttonClose.classList.add("btn-close")
-buttonClose.setAttribute("type", "button" )
-buttonClose.setAttribute("data-bs-dismiss", "modal")
-buttonClose.setAttribute("aria-label", "Close")
-// modalHeader.appendChild(buttonClose)
-
-let modalBody = document.createElement("div")
-modalBody.classList.add("modal-body")
-// modalContent.appendChild(modalBody)
 
 
 
@@ -222,8 +234,7 @@ modalBody.classList.add("modal-body")
   card.appendChild(img)
   card.appendChild(title)
   card.appendChild(divText)
-  divText.appendChild(modal)
- 
+
   
 
   cards.appendChild(col)
@@ -253,4 +264,5 @@ function infoFooter(){
     document.getElementById("qtdEpisodios").innerHTML = `EPISÓDIOS: ${qtdEpisodiosData}`
   })
 }
+
 
