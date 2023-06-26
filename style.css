@@ -6,8 +6,10 @@
 }
 
 .body{
-    background-image: url(./background.png);
+    background-image: url(./FUNDO.jpg);
     background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 p{
@@ -16,13 +18,29 @@ p{
     color: rgb(112, 112, 112);
 }
 
+.modal{
+    position: absolute;
+    top: 50%!important;
+    transform: translateY(-25%);
+}
+
+
 
 #titlePage{
+    position: relative;
+    background-image: linear-gradient(127deg, #ff008c, #DBCB5A, #ff008c);
+    background-size: 200%;
+    background-position: -100%;
     text-align: center;
-    color: rgb(16, 87, 24);
+    color: rgba(16, 87, 24, 0);
     font-size: 10vh;
     font-weight: 900;
     margin: 1rem;
+    animation: titulo 2s infinite cubic-bezier(1,1,1,1);
+
+    background-clip: text;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
 }
 
 .buttonSearch {
@@ -39,6 +57,10 @@ p{
 .card{
     display: flex;
     align-items: center;
+}
+
+.card:hover{
+    transform: scale(1.1)
 }
 
 .col-12{
@@ -85,6 +107,12 @@ p{
     max-height: 400px;
     width: auto;
     height: auto;
+    animation: portal 10s infinite cubic-bezier(1,1,1,1)
+}
+
+.containerPortal{
+    display: flex;
+    height: 500px;
 }
 
 #btnPages{
@@ -147,6 +175,16 @@ li {
     align-self: self-start;
 }
 
+.imgRickMorty{
+    position: absolute;
+    width: 400px;
+    top: -60%;
+}
+
+.backpers{
+    position: relative;
+    top: -60%;
+}
 
 #developer{
     display: flex;
@@ -177,4 +215,34 @@ footer{
     padding: 3.5rem 0px;
     min-height: calc(120px);
     width: 100%;
+    z-index: 10;
+}
+
+@keyframes portal {
+    0% {rotate: 0deg;
+        max-width: 400px;
+        max-height: 400px;
+    }
+    20%{rotate: 10deg;
+        max-width: 420px;
+        max-height: 420px;
+    }
+    60%{rotate: 0deg;
+        max-width: 400px;
+        max-height: 400px;
+    }
+    80%{rotate: -10deg;
+        max-width: 420px;
+        max-height: 420px;
+    }
+    100%{rotate: 0deg;
+        max-width: 400px;
+        max-height: 400px;
+    }
+}
+
+@keyframes titulo {
+    0% {background-position: -100%;}
+    50% {background-position: 0;}
+    100% {background-position: 100%;}
 }
